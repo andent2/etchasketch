@@ -1,0 +1,59 @@
+html { border-color: green; border-style: dashed; }
+
+body { border-style: dashed; border-color: purple; }
+
+header { border-style: dashed; border-color: pink; }
+
+#toolBar { border-color: orange; border-style: dashed; }
+
+#mainView { border-color: blue; border-style: dashed; }
+
+
+
+h1 { 
+	color: black; 
+}
+
+
+
+#mainView {
+	display: flex;
+	justify-content: center;
+}
+
+#etchASketchScreen {
+	height: 500px;
+	width: 500px;
+
+	display: flex;
+	flex-wrap: wrap;
+
+	background-color: white;
+
+	border-style: solid;
+	border-color: black;
+}
+
+.gridCell {
+	outline: 1px solid lightgrey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

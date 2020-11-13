@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Etch-a-Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Etch-A-Sketch</h1>
+
+        <div id="toolBar">
+
+            <label forId="chooseColorButton">Choose Color</label>
+            <input class="toolBarButton" id="chooseColorButton" type="color" value="#000000"></input>
+
+            <label forId="colorMode">Choose Color Mode</label>
+            <select name="colorName" id="colorMode">
+                <option value="solid">Solid</option>
+                <option value="shade">Shade</option>
+                <option value="random">Random</option>
+                <option value="erase">Erase</option>
+            </select>
+
+            <button class="toolBarButton" id="removeGridLinesButton">Remove Grid Lines</button>
+
+            <button class="toolBarButton" id="addGridLinesButton">Add Grid Lines</button>
+
+            <button class="toolBarButton" id="clearScreenButton">Clear Screen</button>
+
+            <button class="toolBarButton" id="setGridSizeButton">Set Grid Size</button>
+
+        </div>
+
+    </header>
+
+    <div id="mainView">
+
+        <div id="etchASketchScreen">
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="scripts.js"></script>
+
+</body>
+
+</html>
