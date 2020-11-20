@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" 
+    rel="stylesheet" />
+
+
 </head>
 
 <body>
@@ -17,24 +21,40 @@
 
         <div id="toolBar">
 
-            <label forId="chooseColorButton">Choose Color</label>
-            <input class="toolBarButton" id="chooseColorButton" type="color" value="#000000"></input>
+            <div class="tool">
+                <input id="chooseColorButton" type="color" value="#000000"></input>
+            </div>
 
-            <label forId="colorMode">Choose Color Mode</label>
-            <select name="colorName" id="colorMode">
-                <option value="solid">Solid</option>
-                <option value="shade">Shade</option>
-                <option value="random">Random</option>
-                <option value="erase">Erase</option>
-            </select>
+            <div class="tool">
+                <div class="custom-dropdown">
+                    <select name="colorName" id="colorMode">
+                        <option value="solid">--Choose Color Mode--</option>
+                        <option value="solid">Solid</option>
+                        <option value="shade">Shade</option>
+                        <option value="random">Random</option>
+                        <option value="erase">Erase</option>
+                    </select>
+                </div>
+            </div>
 
-            <button class="toolBarButton" id="removeGridLinesButton">Remove Grid Lines</button>
+            <div class="tool">
+                <label class="switch">
+                    <input type="checkbox" id="gridLineSwitch" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
 
-            <button class="toolBarButton" id="addGridLinesButton">Add Grid Lines</button>
+            <div class="tool">
+                <div class="button" id="setGridSizeButton">
+                    <text>Set Grid Size</text>
+                </div>
+            </div>
 
-            <button class="toolBarButton" id="clearScreenButton">Clear Screen</button>
-
-            <button class="toolBarButton" id="setGridSizeButton">Set Grid Size</button>
+            <div class="tool">
+                <div class="button" id="clearScreenButton">
+                    <text>Clear Screen</text>
+                </div>
+            </div>
 
         </div>
 

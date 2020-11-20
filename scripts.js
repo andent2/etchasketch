@@ -230,6 +230,17 @@ function setGridSize() {
 
 }
 
+function toggleGridLineSwitch() {
+
+    let gridLineSwitch = document.getElementById("gridLineSwitch")
+
+    if (gridLineSwitch.checked === true) {
+        addGridLines()
+    } else if (gridLineSwitch.checked === false) {
+        removeGridLines()
+    }
+}
+
 
 
 // Creating Inital View
@@ -262,6 +273,13 @@ createInitialView()
 document.getElementById("setGridSizeButton").addEventListener("click", setGridSize);
 document.getElementById("chooseColorButton").addEventListener("input", setDrawColor);
 document.getElementById("colorMode").addEventListener("change", setColorMode);
-document.getElementById("removeGridLinesButton").addEventListener("click", removeGridLines);
-document.getElementById("addGridLinesButton").addEventListener("click", addGridLines);
+document.getElementById("gridLineSwitch").addEventListener("click", toggleGridLineSwitch);
 document.getElementById("clearScreenButton").addEventListener("click", clearScreen);
+
+
+
+
+
+
+
+
