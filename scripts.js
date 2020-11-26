@@ -45,7 +45,7 @@ function rgbaToArray(rgba) {
 
 // Settings - Set to Defaults
 
-let drawActivated = false;
+let drawEnabled = false;
 
 let currentSelectedDrawColor = "#000000";
 let currentSelectedDrawColorInRGBA = "rgba(0, 0, 0, 1.0)";
@@ -71,13 +71,10 @@ function createCell(chosenGridSize) {
     newCell.setAttribute("shadeCount", 0)
     newCell.setAttribute("draggable", false)
 
-    // *** newCell.addEventListener("click", toggleDrawSwitch)
-    // *** newCell.addEventListener("click", fillIn)
-    newCell.addEventListener("mousedown", toggleDrawSwitch)    
+    newCell.addEventListener("mousedown", enableDraw)    
     newCell.addEventListener("mousedown", fillIn)
     newCell.addEventListener("mouseenter", fillIn)
-    newCell.addEventListener("mouseup", toggleDrawSwitch)
-    // *** newCell.addEventListener("mouseenter", fillIn)
+    newCell.addEventListener("mouseup", disableDraw)
 
     return newCell;
 }
@@ -150,23 +147,25 @@ function getColor(e) {
 }
 
 
+
 // Tool Functions
 
 function fillIn(e) {
     e.preventDefault()
-    if (drawActivated) {
+    if (drawEnabled) {
         let fillColor = getColor(e);
         e.target.style.backgroundColor = fillColor;
     }
 }
 
 
-function toggleDrawSwitch() {
-    if (drawActivated) {
-        drawActivated = false;
-    } else if (!drawActivated) {
-        drawActivated = true;
-    }
+function disableDraw () {
+    drawEnabled = false
+}
+
+
+function enableDraw () {
+    drawEnabled = true
 }
 
 
@@ -210,25 +209,23 @@ function clearScreen() {
 
 
 function askUserForGridSize() {
-
-    let gridSizeNumber = parseInt(prompt("Enter Grid Size from 8-100"))
-
-    if ((gridSizeNumber < 8) || (gridSizeNumber > 100)) {
-        return;
-    } else {
-        return gridSizeNumber;
-    }
+    return (parseInt(prompt("Enter Grid Size from 2-100"))) 
 }
+
 
 function setGridSize() {
 
-    removeAllChildNodes(etchASketchScreen);
+    let chosenGridSize = askUserForGridSize()
 
-    let chosenGridSize = askUserForGridSize();
-
-    createGridOfCells(chosenGridSize);
+    if ((chosenGridSize >= 2) && (chosenGridSize <= 100)) {
+        removeAllChildNodes(etchASketchScreen);
+        createGridOfCells(chosenGridSize); 
+    } else {
+        return
+    }
 
 }
+
 
 function toggleGridLineSwitch() {
 
@@ -275,6 +272,13 @@ document.getElementById("chooseColorButton").addEventListener("input", setDrawCo
 document.getElementById("colorMode").addEventListener("change", setColorMode);
 document.getElementById("gridLineSwitch").addEventListener("click", toggleGridLineSwitch);
 document.getElementById("clearScreenButton").addEventListener("click", clearScreen);
+
+
+
+// Event Listeners for Main View
+
+mainView.addEventListener("mouseup", disableDraw)
+
 
 
 
